@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaHeart } from 'react-icons/fa';
 
 function JokeItem({
                       joke,
@@ -19,7 +20,7 @@ function JokeItem({
             <p>{joke.setup}</p>
             <p>{joke.delivery}</p>
             <button onClick={handleFavoriteClick}>
-                {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
+                <FaHeart color={isFavorite ? 'red' : 'gray'} />
             </button>
         </div>
     );
