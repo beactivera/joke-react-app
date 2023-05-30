@@ -17,8 +17,8 @@ function JokeItem({
 
     return (
         <div>
-            <p>{joke.setup}</p>
-            <p>{joke.delivery}</p>
+            {joke.type === "single" ? (<p>{joke.joke}</p>) : (<><p>{joke.setup}</p>
+                <p>{joke.delivery}</p></>)}
             <button onClick={handleFavoriteClick}>
                 <FaHeart color={isFavorite ? 'red' : 'gray'} />
             </button>

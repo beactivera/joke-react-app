@@ -15,12 +15,12 @@ function App() {
   const fetchJokes = async () => {
     try {
       const response = await axios.get('https://v2.jokeapi.dev/joke/Coding');
-      const newJokes = response.data.jokes.map((joke) => ({
-        id: joke.id,
-        setup: joke.setup,
-        delivery: joke.delivery,
-      }));
-      setJokes(newJokes);
+      const downloadedJoke = response.data;
+      if( downloadedJoke.type === "single"){
+        setJokes((oldJokes) => ([...oldJokes, {id: downloadedJoke["id"], type: downloadedJoke["type"], joke: downloadedJoke["joke"]}]));
+      }else if (downloadedJoke.type === "twopart"){
+        setJokes((oldJokes) => ([...oldJokes, {id: downloadedJoke["id"], type: downloadedJoke["type"], setup: downloadedJoke["setup"], delivery: downloadedJoke["delivery"]}]));
+      }
     } catch (error) {
       console.log(error);
     }
