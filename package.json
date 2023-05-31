@@ -11,13 +11,16 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.9.0",
     "react-scripts": "5.0.1",
+    "sass": "^1.62.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "sass": "node-sass src/scss/ -o src/css/ --recursive --include-path=src/scss/components",
+    "sass:watch": "node-sass src/scss --output src/css --recursive --watch"
   },
   "eslintConfig": {
     "extends": [
@@ -36,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "node-sass": "^7.0.3"
   }
 }
